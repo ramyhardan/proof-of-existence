@@ -17,12 +17,12 @@ Basic understanding of Solidity:
 Experience with Javascript
 
 ## Getting Started
-1. Install node/npm
+1. Install node/npm.
 1. `npm install -g truffle`
-2. Check out this repo and `cd` into it
+2. Check out this repo and `cd` into it.
 2. `npm install`
-2. `truffle develop` starts an in-memory Ethereum blockchain (uses [test-rpc](https://github.com/ethereumjs/testrpc) under the hood) with "immediate mining" ideal for testing and opens a console
-3. `test` automatically compiles [ProofOfExistence.sol](contracts/ProofOfExistence.sol), migrates in to your local test chain, and executes [ProofOfExistence.spec.js test](test/ProofOfExistence.spec.js)
+2. `truffle develop` starts an in-memory Ethereum blockchain (uses [test-rpc](https://github.com/ethereumjs/testrpc) under the hood) with "immediate mining" ideal for testing and opens a console.
+3. `test` automatically compiles [ProofOfExistence.sol](contracts/ProofOfExistence.sol), migrates it to your local test chain, and executes [ProofOfExistence.spec.js](test/ProofOfExistence.spec.js) test.
 
 ## What's Missing
 Documentation and configuration to deploy the contract to Ethereum testnets or live.
