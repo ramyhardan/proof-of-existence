@@ -1,4 +1,4 @@
-pragma solidity ^0.4.18;
+pragma solidity ^0.4.23;
 
 contract ProofOfExistence {
     
@@ -21,14 +21,14 @@ contract ProofOfExistence {
         _;
     }
 
-    function ProofOfExistence() public {
+    constructor() public {
         owner = msg.sender;
     }
 
     function notarizeHash(uint256 id, bytes32 documentHash) onlyOwner noHashExistsYet(id) public {
         hashesById[id] = documentHash;
 
-        ProofCreated(id, documentHash);
+        emit ProofCreated(id, documentHash);
     }
 
     function doesProofExist(uint256 id, bytes32 documentHash) public view returns (bool) {
