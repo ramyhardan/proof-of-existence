@@ -28,7 +28,7 @@ Experience with Javascript
 Documentation and configuration to deploy the contract to Ethereum testnets or live.
 
 ## Help And Further Reading
-- [Truffle Docs](http://truffleframework.com/docs)
+- [Truffle Docs](https://truffleframework.com/docs/truffle/overview)
 - https://blog.zeppelin.solutions/the-hitchhikers-guide-to-smart-contracts-in-ethereum-848f08001f05
 - [truffle-contract](https://github.com/trufflesuite/truffle-contract) is a handy contract abstraction that makes 
 interacting with a contract more convenient than using web3 directly
