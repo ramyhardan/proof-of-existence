@@ -1,4 +1,4 @@
-pragma solidity ^0.4.23;
+pragma solidity ^0.5.0;
 
 contract ProofOfExistence {
     
@@ -12,12 +12,12 @@ contract ProofOfExistence {
     mapping (uint256 => bytes32) hashesById;
 
     modifier onlyOwner() {
-        require(msg.sender == owner);
+        require(msg.sender == owner, "Only the owner is allowed to access this function.");
         _;
     }
 
     modifier noHashExistsYet(uint256 id) {
-        require(hashesById[id] == "");
+        require(hashesById[id] == "", "No hash exists for this id.");
         _;
     }
 
@@ -25,7 +25,7 @@ contract ProofOfExistence {
         owner = msg.sender;
     }
 
-    function notarizeHash(uint256 id, bytes32 documentHash) onlyOwner noHashExistsYet(id) public {
+    function notarizeHash(uint256 id, bytes32 documentHash) public onlyOwner noHashExistsYet(id) {
         hashesById[id] = documentHash;
 
         emit ProofCreated(id, documentHash);
