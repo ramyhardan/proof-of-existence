@@ -5,9 +5,9 @@
   "main": "truffle-config.js",
   "dependencies": {},
   "devDependencies": {
-    "chai": "^4.2.0",
-    "solc": "^0.5.4",
-    "truffle": "^5.0.4"
+    "chai": "^4.3.0",
+    "solc": "^0.8.1",
+    "truffle": "^5.1.65"
   },
   "scripts": {
     "test": "truffle test"

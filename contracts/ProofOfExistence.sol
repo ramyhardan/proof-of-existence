@@ -1,18 +1,18 @@
-pragma solidity ^0.5.0;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.1;
 
 contract ProofOfExistence {
-    
-    event ProofCreated(
-        uint256 indexed id,
-        bytes32 documentHash
-    );
+    event ProofCreated(uint256 indexed id, bytes32 documentHash);
 
     address public owner;
-  
-    mapping (uint256 => bytes32) hashesById;
+
+    mapping(uint256 => bytes32) hashesById;
 
     modifier onlyOwner() {
-        require(msg.sender == owner, "Only the owner is allowed to access this function.");
+        require(
+            msg.sender == owner,
+            "Only the owner is allowed to access this function."
+        );
         _;
     }
 
@@ -21,17 +21,25 @@ contract ProofOfExistence {
         _;
     }
 
-    constructor() public {
+    constructor() {
         owner = msg.sender;
     }
 
-    function notarizeHash(uint256 id, bytes32 documentHash) public onlyOwner noHashExistsYet(id) {
+    function notarizeHash(uint256 id, bytes32 documentHash)
+        public
+        onlyOwner
+        noHashExistsYet(id)
+    {
         hashesById[id] = documentHash;
 
         emit ProofCreated(id, documentHash);
     }
 
-    function doesProofExist(uint256 id, bytes32 documentHash) public view returns (bool) {
+    function doesProofExist(uint256 id, bytes32 documentHash)
+        public
+        view
+        returns (bool)
+    {
         return hashesById[id] == documentHash;
     }
 }
